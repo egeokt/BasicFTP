@@ -311,8 +311,6 @@ public class BasicFTP
                             return;
                         }
 
-                        // TODO: method for pasv mode. Duplicate code here and in handleDir!!!
-                        // don't have time for that now...
                         // Request PASV
                         System.out.println("--> PASV");
                         clientOut.print("PASV" + "\r\n");
@@ -347,14 +345,8 @@ public class BasicFTP
                                             byte[] bytes = new byte[fileSize];
                                             int bytesRead = 0;      // how many bytes in each read
                                             int offset = 0;
-
-//                                            try {
-//                                                File file = new File(fileName);
-//                                                FileOutputStream fileOut = new FileOutputStream(file);
-//                                            } catch(NullPointerException err) {
-//                                                System.out.println("0x38E Access to local file XXX denied.");
-//                                            }
-                                           // System.out.println("before getting the bytes");
+                                            
+                                            
                                                 // get the bytes
                                                 while ((bytesRead = dataSocketIn.read(bytes, offset, bytes.length-offset)) != -1) {
                                                     offset += bytesRead;
